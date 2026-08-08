@@ -16,6 +16,16 @@ MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた�
 
 [GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases) から `K-Tech-PowerGuard-1.0.0.dmg`（最新版）を取得してください。
 
+**まだ Release が無い場合** — この Mac で DMG を作る（要 Xcode ライセンス同意）:
+
+```bash
+sudo xcodebuild -license accept
+cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
+./scripts/build-dmg.sh
+```
+
+→ `dist/K-Tech-PowerGuard-1.0.0.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
+
 1. DMG を開く  
 2. **K-Tech PowerGuard** を **Applications** にドラッグ  
 3. 初回起動: 右クリック → **開く**（未署名ビルドの場合）  
