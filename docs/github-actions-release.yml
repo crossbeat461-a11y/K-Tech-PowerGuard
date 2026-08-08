@@ -1,3 +1,10 @@
+# GitHub Actions（手動セットアップ用）
+
+`gh auth refresh -h github.com -s workflow` のあと、
+このファイルを `.github/workflows/release.yml` にコピーして push すると
+タグ `v*` または手動実行で DMG をビルドできます。
+
+```yaml
 name: Release
 
 on:
@@ -25,3 +32,4 @@ jobs:
           files: dist/*.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
