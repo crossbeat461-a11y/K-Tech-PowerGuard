@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F00100000000000000000001 /* K_Tech_PowerGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000001 /* K_Tech_PowerGuardApp.swift */; };
+		F00100000000000000000002 /* NeoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000002 /* NeoTheme.swift */; };
+		F00100000000000000000003 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000003 /* AppSettings.swift */; };
+		F00100000000000000000004 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000004 /* BatteryService.swift */; };
+		F00100000000000000000005 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000005 /* NotificationService.swift */; };
+		F00100000000000000000006 /* LoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000006 /* LoginItemService.swift */; };
+		F00100000000000000000007 /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000007 /* BatteryMonitor.swift */; };
+		F00100000000000000000008 /* NeoPresetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000008 /* NeoPresetPicker.swift */; };
+		F00100000000000000000009 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000009 /* SettingsView.swift */; };
+		F00100000000000000000010 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000011 /* L10n.swift */; };
+
+/* Begin PBXFileReference section */
+		F00200000000000000000001 /* K_Tech_PowerGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_Tech_PowerGuardApp.swift; sourceTree = "<group>"; };
+		F00200000000000000000002 /* NeoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoTheme.swift; sourceTree = "<group>"; };
+		F00200000000000000000003 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		F00200000000000000000004 /* BatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
+		F00200000000000000000005 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F00200000000000000000006 /* LoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemService.swift; sourceTree = "<group>"; };
+		F00200000000000000000007 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		F00200000000000000000008 /* NeoPresetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoPresetPicker.swift; sourceTree = "<group>"; };
+		F00200000000000000000009 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F00200000000000000000011 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		F00200000000000000000010 /* K-Tech PowerGuard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Tech PowerGuard.entitlements"; sourceTree = "<group>"; };
+		F00300000000000000000001 /* K-Tech PowerGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-Tech PowerGuard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F00400000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F00500000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				F00500000000000000000002 /* K-Tech PowerGuard */,
+				F00500000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F00500000000000000000002 /* K-Tech PowerGuard */ = {
+			isa = PBXGroup;
+			children = (
+				F00200000000000000000001 /* K_Tech_PowerGuardApp.swift */,
+				F00500000000000000000004 /* Models */,
+				F00500000000000000000005 /* Services */,
+				F00500000000000000000006 /* Views */,
+				F00200000000000000000010 /* K-Tech PowerGuard.entitlements */,
+			);
+			path = "K-Tech PowerGuard";
+			sourceTree = "<group>";
+		};
+		F00500000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F00300000000000000000001 /* K-Tech PowerGuard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F00500000000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F00200000000000000000002 /* NeoTheme.swift */,
+				F00200000000000000000003 /* AppSettings.swift */,
+				F00200000000000000000011 /* L10n.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F00500000000000000000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F00200000000000000000004 /* BatteryService.swift */,
+				F00200000000000000000005 /* NotificationService.swift */,
+				F00200000000000000000006 /* LoginItemService.swift */,
+				F00200000000000000000007 /* BatteryMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F00500000000000000000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F00200000000000000000008 /* NeoPresetPicker.swift */,
+				F00200000000000000000009 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F00600000000000000000001 /* K-Tech PowerGuard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00700000000000000000003 /* Build configuration list for PBXNativeTarget "K-Tech PowerGuard" */;
+			buildPhases = (
+				F00800000000000000000001 /* Sources */,
+				F00400000000000000000001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "K-Tech PowerGuard";
+			productName = "K-Tech PowerGuard";
+			productReference = F00300000000000000000001 /* K-Tech PowerGuard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F00900000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = F00700000000000000000001 /* Build configuration list for PBXProject "K-Tech PowerGuard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ja,
+				Base,
+			);
+			mainGroup = F00500000000000000000001;
+			productRefGroup = F00500000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F00600000000000000000001 /* K-Tech PowerGuard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F00800000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00100000000000000000001 /* K_Tech_PowerGuardApp.swift in Sources */,
+				F00100000000000000000002 /* NeoTheme.swift in Sources */,
+				F00100000000000000000003 /* AppSettings.swift in Sources */,
+				F00100000000000000000004 /* BatteryService.swift in Sources */,
+				F00100000000000000000005 /* NotificationService.swift in Sources */,
+				F00100000000000000000006 /* LoginItemService.swift in Sources */,
+				F00100000000000000000007 /* BatteryMonitor.swift in Sources */,
+				F00100000000000000000008 /* NeoPresetPicker.swift in Sources */,
+				F00100000000000000000009 /* SettingsView.swift in Sources */,
+				F00100000000000000000010 /* L10n.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F00A00000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F00A00000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F00A00000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "K-Tech PowerGuard/K-Tech PowerGuard.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "K-Tech PowerGuard";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSUserNotificationUsageDescription = "バッテリー残量の通知を表示します。";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ktech.powerguard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F00A00000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "K-Tech PowerGuard/K-Tech PowerGuard.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "K-Tech PowerGuard";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSUserNotificationUsageDescription = "バッテリー残量の通知を表示します。";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ktech.powerguard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F00700000000000000000001 /* Build configuration list for PBXProject "K-Tech PowerGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00A00000000000000000001 /* Debug */,
+				F00A00000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00700000000000000000003 /* Build configuration list for PBXNativeTarget "K-Tech PowerGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00A00000000000000000003 /* Debug */,
+				F00A00000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F00900000000000000000001 /* Project object */;
+}

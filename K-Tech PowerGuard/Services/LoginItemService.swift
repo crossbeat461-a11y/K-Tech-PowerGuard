@@ -1,0 +1,17 @@
+import ServiceManagement
+
+enum LoginItemService {
+    static func isEnabled() -> Bool {
+        SMAppService.mainApp.status == .enabled
+    }
+
+    @discardableResult
+    static func setEnabled(_ enabled: Bool) throws -> Bool {
+        if enabled {
+            try SMAppService.mainApp.register()
+        } else {
+            try SMAppService.mainApp.unregister()
+        }
+        return isEnabled()
+    }
+}
