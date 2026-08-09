@@ -16,6 +16,16 @@ MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた�
 
 [GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases) から `K-Tech-PowerGuard-1.0.0.dmg`（最新版）を取得してください。
 
+> **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
+
+### インストールに関する免責・同意
+
+- 本ソフトウェア（K-Tech PowerGuard）の **ダウンロード・インストール・利用は、すべて利用者自身の判断と責任** で行ってください。
+- **お使いの Mac の環境（macOS のバージョン、機種、セキュリティ設定、通知設定、ログイン項目、他アプリとの競合など）によっては、インストールできない、起動しない、通知が出ない、期待どおり動作しない** 場合があります。開発者は **すべての環境での動作を保証しません**。
+- 開発者（K-Tech Studio）は、**インストールの成功、継続的な正常動作、通知の到達、バッテリー寿命・本体・データへの影響** などについて、**いかなる保証も行いません**。
+- **DMG からインストールする、または本ソフトウェアを利用開始した時点で**、上記および [MIT ライセンス](LICENSE) の内容を **理解し、同意したもの** とみなします。
+- 本ソフトウェアの利用（インストールを含む）に関連して生じた **いかなる損害・不利益** についても、開発者・著作権者は **MIT ライセンスおよび適用される法令の範囲内でのみ** 責任を負い、それを超える責任の追及は受けません。
+
 **まだ Release が無い場合** — この Mac で DMG を作る（要 Xcode ライセンス同意）:
 
 ```bash
@@ -55,3 +65,17 @@ Xcode 26 / macOS 14 以上を想定。`K-Tech PowerGuard.xcodeproj` を開いて
 ## ライセンス
 
 MIT — 詳細は [LICENSE](LICENSE)
+
+---
+
+## Disclaimer (English)
+
+> **Read before install** — By installing from the DMG or using this software, you agree to the terms below and the [MIT License](LICENSE).
+
+**Installation and use — no warranty**
+
+- You **download, install, and use** K-Tech PowerGuard **at your own risk and responsibility**.
+- **Depending on your Mac environment** (macOS version, hardware model, security settings, notification settings, login items, conflicts with other apps, etc.), the app **may fail to install, fail to launch, fail to notify, or not behave as expected**. The developer **does not guarantee operation in every environment**.
+- The developer (K-Tech Studio) **does not warrant** successful installation, ongoing correct operation, delivery of notifications, or any effect on battery life, hardware, or data.
+- **By installing from the DMG or starting to use the software**, you **acknowledge and agree** to this disclaimer and the MIT License.
+- To the **maximum extent permitted by applicable law**, the authors and copyright holders **shall not be liable** for any damages or losses arising from installation or use of this software, except as stated in the MIT License.
