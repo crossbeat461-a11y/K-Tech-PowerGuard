@@ -73,18 +73,18 @@ final class AppSettings: ObservableObject {
 
         let presetRaw = defaults.string(forKey: Keys.preset) ?? NeoColorPreset.silver.rawValue
         selectedPreset = NeoColorPreset(rawValue: presetRaw) ?? .silver
-        useCustomAccent = defaults.bool(forKey: Keys.useCustomAccent)
 
         let r = defaults.object(forKey: Keys.customAccentR) as? Double ?? 0.66
         let g = defaults.object(forKey: Keys.customAccentG) as? Double ?? 0.66
         let b = defaults.object(forKey: Keys.customAccentB) as? Double ?? 0.68
-        customAccent = Color(red: r, green: g, blue: b)
+        let preset = NeoColorPreset(rawValue: presetRaw) ?? .silver
+        let useCustom = defaults.bool(forKey: Keys.useCustomAccent)
 
-        if useCustomAccent {
-            theme = ThemeColors(accent: Color(red: r, green: g, blue: b), background: NeoColorPreset(rawValue: presetRaw)?.background ?? NeoColorPreset.silver.background)
-        } else {
-            theme = ThemeColors.from(preset: NeoColorPreset(rawValue: presetRaw) ?? .silver)
-        }
+        useCustomAccent = useCustom
+        theme = useCustom
+            ? ThemeColors(accent: Color(red: r, green: g, blue: b), background: preset.background)
+            : ThemeColors.from(preset: preset)
+        customAccent = Color(red: r, green: g, blue: b)
     }
 
     func applyPreset(_ preset: NeoColorPreset) {

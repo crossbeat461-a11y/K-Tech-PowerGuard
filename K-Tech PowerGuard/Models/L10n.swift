@@ -19,8 +19,11 @@ enum AppLanguage: String, CaseIterable, Identifiable, Codable {
 }
 
 enum L10n {
+    private static let languageKey = "appLanguage"
+
     static func t(_ key: String, _ args: CVarArg...) -> String {
-        let lang = AppSettings.shared.language
+        let raw = UserDefaults.standard.string(forKey: languageKey) ?? AppLanguage.ja.rawValue
+        let lang = AppLanguage(rawValue: raw) ?? .ja
         let table = strings[lang] ?? strings[.ja]!
         let template = table[key] ?? key
         guard !args.isEmpty else { return template }
