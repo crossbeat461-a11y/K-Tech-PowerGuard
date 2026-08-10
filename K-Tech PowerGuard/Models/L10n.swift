@@ -62,6 +62,8 @@ enum L10n {
             "about.tagline": "K-Tech Studio — Digital Crafting & Minimal Solutions",
             "about.open_studio": "K-Tech Studio ウェブサイトを開く",
             "about.open_releases": "更新情報（GitHub Releases）",
+            "about.open_issues": "不具合・要望（GitHub Issues）",
+            "about.version_copy_hint": "クリックでバージョン番号をコピー",
             "notify.low_body": "バッテリーが %d%% です。%d%% 付近 — 充電を検討してください。",
             "notify.high_body": "バッテリーが %d%% です。%d%% に達しました — コンセントを外して充電を止めましょう。"
         ],
@@ -96,6 +98,8 @@ enum L10n {
             "about.tagline": "K-Tech Studio — Digital Crafting & Minimal Solutions",
             "about.open_studio": "Open K-Tech Studio website",
             "about.open_releases": "Updates on GitHub Releases",
+            "about.open_issues": "Feedback & bugs (GitHub Issues)",
+            "about.version_copy_hint": "Click to copy version number",
             "notify.low_body": "Battery is at %d%%. Near %d%% — consider charging.",
             "notify.high_body": "Battery is at %d%%. Reached %d%% — unplug to stop charging."
         ]

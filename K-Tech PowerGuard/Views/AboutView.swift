@@ -15,9 +15,16 @@ struct AboutView: View {
             Text("K-Tech PowerGuard")
                 .font(.title3.bold())
 
-            Text(L10n.t("about.version_line", AppMetadata.shortVersion))
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+            Button {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(AppMetadata.shortVersion, forType: .string)
+            } label: {
+                Text(L10n.t("about.version_line", AppMetadata.shortVersion))
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .buttonStyle(.plain)
+            .help(L10n.t("about.version_copy_hint"))
 
             Text(L10n.t("about.tagline"))
                 .font(.caption)
@@ -35,6 +42,9 @@ struct AboutView: View {
                 .tint(settings.theme.accent)
 
                 Link(L10n.t("about.open_releases"), destination: AppMetadata.releasesURL)
+                    .font(.caption)
+
+                Link(L10n.t("about.open_issues"), destination: AppMetadata.issuesURL)
                     .font(.caption)
             }
             .padding(.top, 4)
