@@ -41,7 +41,7 @@ struct SettingsView: View {
         VStack(alignment: .leading, spacing: 4) {
             Text("K-Tech PowerGuard")
                 .font(.title2.bold())
-            Text(L10n.t("settings.subtitle"))
+            Text(L10n.t("settings.subtitle", AppMetadata.shortVersion))
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

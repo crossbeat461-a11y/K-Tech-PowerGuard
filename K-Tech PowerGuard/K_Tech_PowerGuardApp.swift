@@ -15,6 +15,11 @@ struct K_Tech_PowerGuardApp: App {
             SettingsView(settings: settings, monitor: monitor)
         }
         .defaultSize(width: 440, height: 580)
+
+        Window(L10n.t("about.window_title"), id: "about") {
+            AboutView(settings: settings)
+        }
+        .defaultSize(width: 360, height: 340)
     }
 
     private var menuSymbol: String {
@@ -38,6 +43,10 @@ private struct MenuBarContent: View {
             Button(L10n.t("menu.settings")) {
                 NSApp.activate(ignoringOtherApps: true)
                 openWindow(id: "settings")
+            }
+            Button(L10n.t("menu.about")) {
+                NSApp.activate(ignoringOtherApps: true)
+                openWindow(id: "about")
             }
             Button(L10n.t("menu.quit")) {
                 NSApplication.shared.terminate(nil)

@@ -14,7 +14,7 @@ MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた�
 
 ## ダウンロード
 
-[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases) から `K-Tech-PowerGuard-1.0.0.dmg`（最新版）を取得してください。
+[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 v1.0.1）。
 
 > **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
 

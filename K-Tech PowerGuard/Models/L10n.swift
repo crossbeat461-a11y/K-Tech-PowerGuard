@@ -33,7 +33,7 @@ enum L10n {
     private static let strings: [AppLanguage: [String: String]] = [
         .ja: [
             "settings.window_title": "K-Tech PowerGuard 設定",
-            "settings.subtitle": "v1.0.0 · MacBook Neo テーマ",
+            "settings.subtitle": "v%@ · MacBook Neo テーマ",
             "settings.language": "表示言語",
             "battery.current": "現在のバッテリー",
             "battery.state": "状態",
@@ -55,13 +55,19 @@ enum L10n {
             "about.charge_limit": "充電の物理的な停止は macOS では行えません。上限到達時は通知でお知らせします。",
             "about.watch": "Apple Watch には、Mac の通知を Watch に表示する設定をオンにすると届くことがあります。",
             "menu.settings": "設定…",
+            "menu.about": "K-Tech PowerGuard について…",
             "menu.quit": "終了",
+            "about.window_title": "K-Tech PowerGuard について",
+            "about.version_line": "バージョン %@",
+            "about.tagline": "K-Tech Studio — Digital Crafting & Minimal Solutions",
+            "about.open_studio": "K-Tech Studio ウェブサイトを開く",
+            "about.open_releases": "更新情報（GitHub Releases）",
             "notify.low_body": "バッテリーが %d%% です。%d%% 付近 — 充電を検討してください。",
             "notify.high_body": "バッテリーが %d%% です。%d%% に達しました — コンセントを外して充電を止めましょう。"
         ],
         .en: [
             "settings.window_title": "K-Tech PowerGuard Settings",
-            "settings.subtitle": "v1.0.0 · MacBook Neo theme",
+            "settings.subtitle": "v%@ · MacBook Neo theme",
             "settings.language": "Language",
             "battery.current": "Battery",
             "battery.state": "Status",
@@ -83,7 +89,13 @@ enum L10n {
             "about.charge_limit": "macOS cannot stop charging physically. At the upper limit you will get a notification.",
             "about.watch": "Apple Watch may show alerts if mirroring Mac notifications is enabled.",
             "menu.settings": "Settings…",
+            "menu.about": "About K-Tech PowerGuard…",
             "menu.quit": "Quit",
+            "about.window_title": "About K-Tech PowerGuard",
+            "about.version_line": "Version %@",
+            "about.tagline": "K-Tech Studio — Digital Crafting & Minimal Solutions",
+            "about.open_studio": "Open K-Tech Studio website",
+            "about.open_releases": "Updates on GitHub Releases",
             "notify.low_body": "Battery is at %d%%. Near %d%% — consider charging.",
             "notify.high_body": "Battery is at %d%%. Reached %d%% — unplug to stop charging."
         ]
