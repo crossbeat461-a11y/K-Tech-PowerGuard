@@ -6,6 +6,6 @@ enum AppMetadata {
     static let issuesURL = URL(string: "https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/issues")!
 
     static var shortVersion: String {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.1"
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.2"
     }
 }

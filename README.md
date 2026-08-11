@@ -14,7 +14,9 @@ MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた�
 
 ## ダウンロード
 
-[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 v1.0.1）。
+[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/latest) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 **v1.0.2**）。
+
+直接リンク: [K-Tech-PowerGuard-1.0.2.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.2/K-Tech-PowerGuard-1.0.2.dmg)
 
 > **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
 
@@ -34,7 +36,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 ./scripts/build-dmg.sh
 ```
 
-→ `dist/K-Tech-PowerGuard-1.0.0.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
+→ `dist/K-Tech-PowerGuard-1.0.2.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
 
 1. DMG を開く  
 2. **K-Tech PowerGuard** を **Applications** にドラッグ  
@@ -48,7 +50,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 # Xcode ライセンス同意後
 cd "K-Tech PowerGuard"
 ./scripts/build-dmg.sh
-# → dist/K-Tech-PowerGuard-1.0.0.dmg
+# → dist/K-Tech-PowerGuard-1.0.2.dmg
 ```
 
 Xcode 26 / macOS 14 以上を想定。`K-Tech PowerGuard.xcodeproj` を開いて Run も可能です。
