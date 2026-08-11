@@ -10,6 +10,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 20) {
                 header
                 languageSection
+                macSection
                 statusCard
                 thresholdsSection
                 NeoPresetPicker(settings: settings)
@@ -42,6 +43,18 @@ struct SettingsView: View {
             Text("K-Tech PowerGuard")
                 .font(.title2.bold())
             Text(L10n.t("settings.subtitle", AppMetadata.shortVersion))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var macSection: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(L10n.t("settings.mac_title"))
+                .font(.headline)
+            Text(MacHardwareInfo.displayName)
+                .font(.subheadline)
+            Text(L10n.t("settings.mac_compat"))
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

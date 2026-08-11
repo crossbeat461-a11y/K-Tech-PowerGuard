@@ -1,6 +1,8 @@
 # K-Tech PowerGuard
 
-MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた、メニューバー常駐のバッテリー通知アプリです。無償配布（MIT）。
+**すべての Mac** で使える、メニューバー常駐のバッテリー通知アプリです。MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）をテーマとして選べます。無償配布（MIT）。
+
+> バッテリー監視・通知は MacBook Air / Pro / mini / iMac など **機種共通** です。設定画面ではお使いの Mac を自動表示します。
 
 ## 機能
 
@@ -8,15 +10,16 @@ MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）に合わせた�
 - **上限（デフォルト 80%）** — 充電中に上回ったら「コンセントを外す」通知（充電の物理停止は macOS では行いません）
 - しきい値は設定画面で変更可能
 - **表示言語:** 日本語（初期値） / English（設定で切替）
+- **お使いの Mac** — 設定画面にモデル名・チップを自動表示（Air / Pro / Neo / mini など）
 - **MacBook Neo 4色** をワンタップで切替 + カスタムアクセント色
 - **ログイン時に起動**（設定で ON/OFF）
 - **Apple Watch** — Mac の通知を Watch に表示する設定がオンなら届くことがあります（専用 Watch アプリはありません）
 
 ## ダウンロード
 
-[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/latest) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 **v1.0.2**）。
+[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/latest) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 **v1.0.3**）。
 
-直接リンク: [K-Tech-PowerGuard-1.0.2.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.2/K-Tech-PowerGuard-1.0.2.dmg)
+直接リンク: [K-Tech-PowerGuard-1.0.3.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.3/K-Tech-PowerGuard-1.0.3.dmg)
 
 > **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
 
@@ -36,7 +39,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 ./scripts/build-dmg.sh
 ```
 
-→ `dist/K-Tech-PowerGuard-1.0.2.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
+→ `dist/K-Tech-PowerGuard-1.0.3.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
 
 1. DMG を開く  
 2. **K-Tech PowerGuard** を **Applications** にドラッグ  
@@ -50,7 +53,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 # Xcode ライセンス同意後
 cd "K-Tech PowerGuard"
 ./scripts/build-dmg.sh
-# → dist/K-Tech-PowerGuard-1.0.2.dmg
+# → dist/K-Tech-PowerGuard-1.0.3.dmg
 ```
 
 Xcode 26 / macOS 14 以上を想定。`K-Tech PowerGuard.xcodeproj` を開いて Run も可能です。
