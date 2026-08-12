@@ -1,33 +1,86 @@
 import SwiftUI
 import AppKit
 
+private enum SettingsTab: String, CaseIterable, Identifiable {
+    case general
+    case history
+    case appearance
+
+    var id: String { rawValue }
+
+    func title() -> String {
+        switch self {
+        case .general: return L10n.t("settings.tab.general")
+        case .history: return L10n.t("settings.tab.history")
+        case .appearance: return L10n.t("settings.tab.appearance")
+        }
+    }
+}
+
 struct SettingsView: View {
     @ObservedObject var settings: AppSettings
     @ObservedObject var monitor: BatteryMonitor
+    @State private var selectedTab: SettingsTab = .general
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                header
-                languageSection
-                macSection
-                statusCard
-                BatteryHistorySection(settings: settings, monitor: monitor)
-                thresholdsSection
-                NeoPresetPicker(settings: settings)
-                customColorSection
-                togglesSection
-                aboutSection
-            }
-            .padding(24)
+        VStack(alignment: .leading, spacing: 16) {
+            header
+            tabPicker
+            tabContent
         }
-        .frame(minWidth: 440, minHeight: 720)
+        .padding(24)
+        .frame(minWidth: 440, minHeight: 520)
         .background(settings.theme.background)
         .tint(settings.theme.accent)
         .environment(\.locale, settings.language.locale)
         .onAppear(perform: updateWindowTitle)
         .onChange(of: settings.language) { _, _ in
             updateWindowTitle()
+        }
+    }
+
+    private var tabPicker: some View {
+        Picker("", selection: $selectedTab) {
+            ForEach(SettingsTab.allCases) { tab in
+                Text(tab.title()).tag(tab)
+            }
+        }
+        .pickerStyle(.segmented)
+        .labelsHidden()
+    }
+
+    @ViewBuilder
+    private var tabContent: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                switch selectedTab {
+                case .general:
+                    generalTab
+                case .history:
+                    BatteryHistorySection(settings: settings, monitor: monitor)
+                case .appearance:
+                    appearanceTab
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    private var generalTab: some View {
+        Group {
+            statusCard
+            thresholdsSection
+            togglesSection
+            aboutSection
+        }
+    }
+
+    private var appearanceTab: some View {
+        Group {
+            languageSection
+            macSection
+            NeoPresetPicker(settings: settings)
+            customColorSection
         }
     }
 
