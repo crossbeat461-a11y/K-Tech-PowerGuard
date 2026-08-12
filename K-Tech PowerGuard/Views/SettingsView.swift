@@ -12,6 +12,7 @@ struct SettingsView: View {
                 languageSection
                 macSection
                 statusCard
+                BatteryHistorySection(settings: settings, monitor: monitor)
                 thresholdsSection
                 NeoPresetPicker(settings: settings)
                 customColorSection
@@ -20,7 +21,7 @@ struct SettingsView: View {
             }
             .padding(24)
         }
-        .frame(minWidth: 420, minHeight: 560)
+        .frame(minWidth: 440, minHeight: 720)
         .background(settings.theme.background)
         .tint(settings.theme.accent)
         .environment(\.locale, settings.language.locale)

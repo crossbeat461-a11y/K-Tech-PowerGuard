@@ -34,6 +34,7 @@ final class BatteryMonitor: ObservableObject {
     func refresh() {
         let settings = AppSettings.shared
         snapshot = BatteryService.currentSnapshot()
+        BatteryHistoryStore.shared.record(snapshot)
         guard snapshot.isPresent, settings.notificationsEnabled, settings.isValidThresholds else { return }
 
         let lower = settings.lowerThreshold

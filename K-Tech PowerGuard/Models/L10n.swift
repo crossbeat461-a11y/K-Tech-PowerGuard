@@ -67,7 +67,19 @@ enum L10n {
             "about.open_issues": "不具合・要望（GitHub Issues）",
             "about.version_copy_hint": "クリックでバージョン番号をコピー",
             "notify.low_body": "バッテリーが %d%% です。%d%% 付近 — 充電を検討してください。",
-            "notify.high_body": "バッテリーが %d%% です。%d%% に達しました — コンセントを外して充電を止めましょう。"
+            "notify.high_body": "バッテリーが %d%% です。%d%% に達しました — コンセントを外して充電を止めましょう。",
+            "history.usage_title": "今日のバッテリー使用状況",
+            "history.on_battery": "バッテリー駆動",
+            "history.charging": "充電",
+            "history.usage_note": "アプリ起動中に記録したデータから算出しています。",
+            "history.active_charging": "現在の充電",
+            "history.session_duration": "時間: %@",
+            "history.level_trend": "残量の推移（24時間）",
+            "history.level_trend_note": "濃い色 = 充電中、薄い色 = バッテリー駆動",
+            "history.charging_title": "充電履歴",
+            "history.empty": "まだ記録がありません。しばらく使うと表示されます。",
+            "history.session_active": "充電中",
+            "history.session_done": "完了"
         ],
         .en: [
             "settings.window_title": "K-Tech PowerGuard Settings",
@@ -105,7 +117,19 @@ enum L10n {
             "about.open_issues": "Feedback & bugs (GitHub Issues)",
             "about.version_copy_hint": "Click to copy version number",
             "notify.low_body": "Battery is at %d%%. Near %d%% — consider charging.",
-            "notify.high_body": "Battery is at %d%%. Reached %d%% — unplug to stop charging."
+            "notify.high_body": "Battery is at %d%%. Reached %d%% — unplug to stop charging.",
+            "history.usage_title": "Today's battery usage",
+            "history.on_battery": "On battery",
+            "history.charging": "Charging",
+            "history.usage_note": "Estimated from samples recorded while the app is running.",
+            "history.active_charging": "Current charge session",
+            "history.session_duration": "Duration: %@",
+            "history.level_trend": "Level trend (24 hours)",
+            "history.level_trend_note": "Dark = charging, light = on battery",
+            "history.charging_title": "Charging history",
+            "history.empty": "No records yet. Data appears after some use.",
+            "history.session_active": "Charging",
+            "history.session_done": "Done"
         ]
     ]
 }

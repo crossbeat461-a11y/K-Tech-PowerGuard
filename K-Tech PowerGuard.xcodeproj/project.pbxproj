@@ -20,6 +20,9 @@
 		F00100000000000000000012 /* AppMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000012 /* AppMetadata.swift */; };
 		F00100000000000000000013 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000013 /* AboutView.swift */; };
 		F00100000000000000000014 /* MacHardwareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000014 /* MacHardwareInfo.swift */; };
+		F00100000000000000000015 /* BatteryHistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000015 /* BatteryHistoryModels.swift */; };
+		F00100000000000000000016 /* BatteryHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000016 /* BatteryHistoryStore.swift */; };
+		F00100000000000000000017 /* BatteryHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000017 /* BatteryHistorySection.swift */; };
 		F00100000000000000000011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00200000000000000000020 /* Assets.xcassets */; };
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		F00200000000000000000012 /* AppMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetadata.swift; sourceTree = "<group>"; };
 		F00200000000000000000014 /* MacHardwareInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHardwareInfo.swift; sourceTree = "<group>"; };
 		F00200000000000000000013 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F00200000000000000000015 /* BatteryHistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryHistoryModels.swift; sourceTree = "<group>"; };
+		F00200000000000000000016 /* BatteryHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryHistoryStore.swift; sourceTree = "<group>"; };
+		F00200000000000000000017 /* BatteryHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryHistorySection.swift; sourceTree = "<group>"; };
 		F00200000000000000000010 /* K-Tech PowerGuard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Tech PowerGuard.entitlements"; sourceTree = "<group>"; };
 		F00200000000000000000020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F00300000000000000000001 /* K-Tech PowerGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-Tech PowerGuard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +95,7 @@
 				F00200000000000000000011 /* L10n.swift */,
 				F00200000000000000000012 /* AppMetadata.swift */,
 				F00200000000000000000014 /* MacHardwareInfo.swift */,
+				F00200000000000000000015 /* BatteryHistoryModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				F00200000000000000000005 /* NotificationService.swift */,
 				F00200000000000000000006 /* LoginItemService.swift */,
 				F00200000000000000000007 /* BatteryMonitor.swift */,
+				F00200000000000000000016 /* BatteryHistoryStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 				F00200000000000000000008 /* NeoPresetPicker.swift */,
 				F00200000000000000000009 /* SettingsView.swift */,
 				F00200000000000000000013 /* AboutView.swift */,
+				F00200000000000000000017 /* BatteryHistorySection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +190,9 @@
 				F00100000000000000000010 /* L10n.swift in Sources */,
 				F00100000000000000000012 /* AppMetadata.swift in Sources */,
 				F00100000000000000000014 /* MacHardwareInfo.swift in Sources */,
+				F00100000000000000000015 /* BatteryHistoryModels.swift in Sources */,
+				F00100000000000000000016 /* BatteryHistoryStore.swift in Sources */,
+				F00100000000000000000017 /* BatteryHistorySection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +258,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ktech.powerguard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -272,7 +284,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ktech.powerguard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
