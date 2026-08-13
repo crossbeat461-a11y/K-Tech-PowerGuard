@@ -15,16 +15,16 @@
 - **充電履歴** — セッションごとの開始時刻・所要時間・残量の変化
 - **残量の推移** — 直近24時間の簡易チャート
 - **タブ式設定画面** — 一般 / 履歴 / 表示（13インチなど小さい画面でも見やすく）
-- **ガラス効果** — オフ / 弱 / 中 / 強（Neo カラーと組み合わせ可能）
+- **ガラス効果** — オフ / 弱 / 中 / 強 / 最大（Neo カラーと組み合わせ可能）
 - **MacBook Neo 4色** をワンタップで切替 + カスタムアクセント色
 - **ログイン時に起動**（設定で ON/OFF）
 - **Apple Watch** — Mac の通知を Watch に表示する設定がオンなら届くことがあります（専用 Watch アプリはありません）
 
 ## ダウンロード
 
-[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/latest) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 **v1.0.6**）。
+[GitHub Releases](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/latest) から最新の `K-Tech-PowerGuard-*.dmg` を取得してください（現在 **v1.0.7**）。
 
-直接リンク: [K-Tech-PowerGuard-1.0.6.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.6/K-Tech-PowerGuard-1.0.6.dmg)
+直接リンク: [K-Tech-PowerGuard-1.0.7.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.7/K-Tech-PowerGuard-1.0.7.dmg)
 
 > **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
 
@@ -44,7 +44,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 ./scripts/build-dmg.sh
 ```
 
-→ `dist/K-Tech-PowerGuard-1.0.6.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
+→ `dist/K-Tech-PowerGuard-1.0.7.dmg` ができます。詳細は [dist/ビルド手順.txt](dist/ビルド手順.txt)
 
 1. DMG を開く  
 2. **K-Tech PowerGuard** を **Applications** にドラッグ  
@@ -58,7 +58,7 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 # Xcode ライセンス同意後
 cd "K-Tech PowerGuard"
 ./scripts/build-dmg.sh
-# → dist/K-Tech-PowerGuard-1.0.6.dmg
+# → dist/K-Tech-PowerGuard-1.0.7.dmg
 ```
 
 Xcode 26 / macOS 14 以上を想定。`K-Tech PowerGuard.xcodeproj` を開いて Run も可能です。

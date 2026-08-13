@@ -8,9 +8,11 @@ struct SettingsWindowBackground: View {
         ZStack {
             settings.theme.background
             if glass != .off {
-                Rectangle()
-                    .fill(glass.material)
-                    .opacity(glass.materialBlend)
+                GlassSurface(
+                    glass: glass,
+                    tint: settings.theme.background,
+                    shape: Rectangle()
+                )
             }
         }
         .ignoresSafeArea()
@@ -21,15 +23,16 @@ struct SettingsCard<Content: View>: View {
     @ObservedObject var settings: AppSettings
     @ViewBuilder var content: () -> Content
 
+    private let cardShape = RoundedRectangle(cornerRadius: 12, style: .continuous)
+
     var body: some View {
         content()
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(cardBackground)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .clipShape(cardShape)
             .overlay {
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .strokeBorder(Color.primary.opacity(0.08), lineWidth: 1)
+                cardShape.strokeBorder(Color.primary.opacity(0.08), lineWidth: 1)
             }
     }
 
@@ -37,15 +40,14 @@ struct SettingsCard<Content: View>: View {
     private var cardBackground: some View {
         let glass = settings.effectiveGlassIntensity
         if glass == .off {
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color(nsColor: .controlBackgroundColor).opacity(0.94))
+            cardShape.fill(Color(nsColor: .controlBackgroundColor).opacity(0.94))
         } else {
             ZStack {
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .fill(settings.theme.background.opacity(0.55))
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .fill(glass.material)
-                    .opacity(min(1, glass.materialBlend + 0.15))
+                cardShape.fill(settings.theme.background.opacity(glass.backgroundTintOpacity))
+                cardShape.fill(glass.material).opacity(min(1, glass.materialBlend + glass.cardMaterialBoost))
+                if glass.usesDoubleLayer {
+                    cardShape.fill(glass.secondaryMaterial).opacity(glass.secondaryBlend)
+                }
             }
         }
     }
@@ -148,12 +150,31 @@ struct GlassIntensityPicker: View {
     @ObservedObject var settings: AppSettings
 
     var body: some View {
-        Picker("", selection: $settings.glassIntensity) {
+        HStack(spacing: 6) {
             ForEach(GlassIntensity.allCases) { level in
-                Text(level.title()).tag(level)
+                glassButton(level)
             }
         }
-        .pickerStyle(.segmented)
-        .labelsHidden()
+    }
+
+    private func glassButton(_ level: GlassIntensity) -> some View {
+        let isSelected = settings.glassIntensity == level
+        return Button {
+            settings.glassIntensity = level
+        } label: {
+            Text(level.title())
+                .font(.caption2.weight(.semibold))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 7)
+                .foregroundStyle(isSelected ? Color.white : Color.primary)
+                .background {
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(isSelected ? settings.theme.accent : Color.primary.opacity(0.07))
+                }
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
