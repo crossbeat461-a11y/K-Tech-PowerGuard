@@ -4,17 +4,9 @@ struct NeoPresetPicker: View {
     @ObservedObject var settings: AppSettings
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(L10n.t("neo.title"))
-                .font(.headline)
-            Text(L10n.t("neo.subtitle"))
-                .font(.caption)
-                .foregroundStyle(.secondary)
-
-            HStack(spacing: 10) {
-                ForEach(NeoColorPreset.allCases) { preset in
-                    presetButton(preset)
-                }
+        HStack(spacing: 10) {
+            ForEach(NeoColorPreset.allCases) { preset in
+                presetButton(preset)
             }
         }
     }
@@ -30,7 +22,11 @@ struct NeoPresetPicker: View {
                     .frame(width: 28, height: 28)
                     .overlay(
                         Circle()
-                            .strokeBorder(isSelected ? Color.primary : Color.clear, lineWidth: 2)
+                            .strokeBorder(isSelected ? settings.theme.accent : Color.clear, lineWidth: 2)
+                    )
+                    .overlay(
+                        Circle()
+                            .strokeBorder(Color.primary.opacity(0.15), lineWidth: 1)
                     )
                 Text(preset.displayName)
                     .font(.caption2)

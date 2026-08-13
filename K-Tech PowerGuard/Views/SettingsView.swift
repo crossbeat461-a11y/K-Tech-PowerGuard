@@ -1,36 +1,23 @@
 import SwiftUI
 import AppKit
 
-private enum SettingsTab: String, CaseIterable, Identifiable {
-    case general
-    case history
-    case appearance
-
-    var id: String { rawValue }
-
-    func title() -> String {
-        switch self {
-        case .general: return L10n.t("settings.tab.general")
-        case .history: return L10n.t("settings.tab.history")
-        case .appearance: return L10n.t("settings.tab.appearance")
-        }
-    }
-}
-
 struct SettingsView: View {
     @ObservedObject var settings: AppSettings
     @ObservedObject var monitor: BatteryMonitor
     @State private var selectedTab: SettingsTab = .general
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            header
-            tabPicker
-            tabContent
+        ZStack {
+            SettingsWindowBackground(settings: settings)
+            VStack(alignment: .leading, spacing: 14) {
+                header
+                SettingsTabBar(selection: $selectedTab, settings: settings)
+                tabContent
+                footer
+            }
+            .padding(20)
         }
-        .padding(24)
         .frame(minWidth: 440, minHeight: 520)
-        .background(settings.theme.background)
         .tint(settings.theme.accent)
         .environment(\.locale, settings.language.locale)
         .onAppear(perform: updateWindowTitle)
@@ -39,20 +26,10 @@ struct SettingsView: View {
         }
     }
 
-    private var tabPicker: some View {
-        Picker("", selection: $selectedTab) {
-            ForEach(SettingsTab.allCases) { tab in
-                Text(tab.title()).tag(tab)
-            }
-        }
-        .pickerStyle(.segmented)
-        .labelsHidden()
-    }
-
     @ViewBuilder
     private var tabContent: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 14) {
                 switch selectedTab {
                 case .general:
                     generalTab
@@ -68,19 +45,99 @@ struct SettingsView: View {
 
     private var generalTab: some View {
         Group {
-            statusCard
-            thresholdsSection
-            togglesSection
-            aboutSection
+            SettingsCard(settings: settings) {
+                statusContent
+            }
+            SettingsCard(settings: settings) {
+                thresholdsContent
+            }
+            SettingsCard(settings: settings) {
+                togglesContent
+            }
+            SettingsCard(settings: settings) {
+                aboutContent
+            }
         }
     }
 
     private var appearanceTab: some View {
         Group {
-            languageSection
-            macSection
-            NeoPresetPicker(settings: settings)
-            customColorSection
+            SettingsCard(settings: settings) {
+                SettingsRow(icon: "globe", title: L10n.t("settings.language")) {
+                    Picker("", selection: $settings.language) {
+                        ForEach(AppLanguage.allCases) { lang in
+                            Text(lang.displayName).tag(lang)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                    .frame(width: 160)
+                }
+            }
+
+            SettingsCard(settings: settings) {
+                SettingsRow(
+                    icon: "desktopcomputer",
+                    title: L10n.t("settings.mac_title"),
+                    subtitle: L10n.t("settings.mac_compat")
+                ) {
+                    Text(MacHardwareInfo.displayName)
+                        .font(.caption.weight(.medium))
+                        .multilineTextAlignment(.trailing)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: 120, alignment: .trailing)
+                }
+            }
+
+            SettingsCard(settings: settings) {
+                VStack(alignment: .leading, spacing: 12) {
+                    SettingsRow(
+                        icon: "paintpalette.fill",
+                        title: L10n.t("neo.title"),
+                        subtitle: L10n.t("neo.subtitle")
+                    ) {
+                        EmptyView()
+                    }
+                    NeoPresetPicker(settings: settings)
+                }
+            }
+
+            SettingsCard(settings: settings) {
+                SettingsRow(icon: "eyedropper.halffull", title: L10n.t("color.custom")) {
+                    ColorPicker("", selection: Binding(
+                        get: { settings.customAccent },
+                        set: { settings.applyCustomAccent($0) }
+                    ), supportsOpacity: false)
+                    .labelsHidden()
+                }
+            }
+
+            SettingsCard(settings: settings) {
+                VStack(alignment: .leading, spacing: 10) {
+                    SettingsRow(
+                        icon: "square.on.square.dashed",
+                        title: L10n.t("glass.title"),
+                        subtitle: L10n.t("glass.subtitle")
+                    ) {
+                        EmptyView()
+                    }
+                    GlassIntensityPicker(settings: settings)
+                }
+            }
+        }
+    }
+
+    private var footer: some View {
+        HStack {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundStyle(settings.theme.accent)
+            Text(L10n.t("settings.footer_hint"))
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+            Spacer()
+            Text("K-Tech")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(settings.theme.accent)
         }
     }
 
@@ -102,43 +159,18 @@ struct SettingsView: View {
         }
     }
 
-    private var macSection: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(L10n.t("settings.mac_title"))
-                .font(.headline)
-            Text(MacHardwareInfo.displayName)
-                .font(.subheadline)
-            Text(L10n.t("settings.mac_compat"))
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-    }
-
-    private var languageSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(L10n.t("settings.language"))
-                .font(.headline)
-            Picker("", selection: $settings.language) {
-                ForEach(AppLanguage.allCases) { lang in
-                    Text(lang.displayName).tag(lang)
-                }
-            }
-            .pickerStyle(.segmented)
-            .labelsHidden()
-        }
-    }
-
-    private var statusCard: some View {
+    private var statusContent: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(L10n.t("battery.current"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Text(monitor.snapshot.isPresent ? "\(monitor.snapshot.levelPercent)%" : "—")
-                    .font(.system(size: 36, weight: .semibold, design: .rounded))
+                    .font(.system(size: 34, weight: .semibold, design: .rounded))
+                    .monospacedDigit()
             }
             Spacer()
-            VStack(alignment: .trailing) {
+            VStack(alignment: .trailing, spacing: 4) {
                 Text(L10n.t("battery.state"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -146,9 +178,6 @@ struct SettingsView: View {
                     .font(.headline)
             }
         }
-        .padding()
-        .background(.background.opacity(0.6))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     private var chargingLabel: String {
@@ -156,39 +185,29 @@ struct SettingsView: View {
         return monitor.snapshot.isCharging ? L10n.t("battery.charging") : L10n.t("battery.on_battery")
     }
 
-    private var thresholdsSection: some View {
+    private var thresholdsContent: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(L10n.t("thresholds.title"))
-                .font(.headline)
+                .font(.subheadline.weight(.semibold))
 
-            HStack {
-                Text(L10n.t("thresholds.lower"))
-                Spacer()
-                Text("\(settings.lowerThreshold)%")
-                    .monospacedDigit()
-            }
-            Slider(
-                value: Binding(
+            thresholdRow(
+                label: L10n.t("thresholds.lower"),
+                value: settings.lowerThreshold,
+                binding: Binding(
                     get: { Double(settings.lowerThreshold) },
                     set: { settings.lowerThreshold = Int($0.rounded()) }
                 ),
-                in: 5...45,
-                step: 1
+                range: 5...45
             )
 
-            HStack {
-                Text(L10n.t("thresholds.upper"))
-                Spacer()
-                Text("\(settings.upperThreshold)%")
-                    .monospacedDigit()
-            }
-            Slider(
-                value: Binding(
+            thresholdRow(
+                label: L10n.t("thresholds.upper"),
+                value: settings.upperThreshold,
+                binding: Binding(
                     get: { Double(settings.upperThreshold) },
                     set: { settings.upperThreshold = Int($0.rounded()) }
                 ),
-                in: 55...100,
-                step: 1
+                range: 55...100
             )
 
             if !settings.isValidThresholds {
@@ -199,29 +218,38 @@ struct SettingsView: View {
         }
     }
 
-    private var customColorSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(L10n.t("color.custom"))
-                .font(.headline)
-            ColorPicker("", selection: Binding(
-                get: { settings.customAccent },
-                set: { settings.applyCustomAccent($0) }
-            ), supportsOpacity: false)
-            .labelsHidden()
+    private func thresholdRow(label: String, value: Int, binding: Binding<Double>, range: ClosedRange<Double>) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text(label)
+                    .font(.caption)
+                Spacer()
+                Text("\(value)%")
+                    .font(.caption.weight(.semibold))
+                    .monospacedDigit()
+            }
+            Slider(value: binding, in: range, step: 1)
         }
     }
 
-    private var togglesSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Toggle(L10n.t("toggle.notifications"), isOn: $settings.notificationsEnabled)
-            Toggle(L10n.t("toggle.login"), isOn: $settings.launchAtLogin)
-                .onChange(of: settings.launchAtLogin) { _, newValue in
-                    syncLoginItem(enabled: newValue)
-                }
+    private var togglesContent: some View {
+        VStack(spacing: 8) {
+            SettingsRow(icon: "bell.fill", title: L10n.t("toggle.notifications")) {
+                Toggle("", isOn: $settings.notificationsEnabled)
+                    .labelsHidden()
+            }
+            Divider()
+            SettingsRow(icon: "power", title: L10n.t("toggle.login")) {
+                Toggle("", isOn: $settings.launchAtLogin)
+                    .labelsHidden()
+            }
+        }
+        .onChange(of: settings.launchAtLogin) { _, newValue in
+            syncLoginItem(enabled: newValue)
         }
     }
 
-    private var aboutSection: some View {
+    private var aboutContent: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(L10n.t("about.charge_limit"))
                 .font(.caption)

@@ -6,13 +6,21 @@ struct BatteryHistorySection: View {
     @ObservedObject private var history = BatteryHistoryStore.shared
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            usageSection
-            if monitor.snapshot.isCharging, let active = history.activeChargingSession {
-                activeChargingCard(active)
+        VStack(alignment: .leading, spacing: 14) {
+            SettingsCard(settings: settings) {
+                usageSection
             }
-            levelTrendSection
-            chargingHistorySection
+            if monitor.snapshot.isCharging, let active = history.activeChargingSession {
+                SettingsCard(settings: settings) {
+                    activeChargingContent(active)
+                }
+            }
+            SettingsCard(settings: settings) {
+                levelTrendSection
+            }
+            SettingsCard(settings: settings) {
+                chargingHistorySection
+            }
         }
     }
 
@@ -20,15 +28,12 @@ struct BatteryHistorySection: View {
         let usage = history.todayUsage()
         return VStack(alignment: .leading, spacing: 8) {
             Text(L10n.t("history.usage_title"))
-                .font(.headline)
+                .font(.subheadline.weight(.semibold))
             HStack {
                 usageMetric(title: L10n.t("history.on_battery"), seconds: usage.onBatterySeconds)
                 Spacer()
                 usageMetric(title: L10n.t("history.charging"), seconds: usage.chargingSeconds)
             }
-            .padding()
-            .background(.background.opacity(0.6))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
             Text(L10n.t("history.usage_note"))
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -46,10 +51,10 @@ struct BatteryHistorySection: View {
         }
     }
 
-    private func activeChargingCard(_ session: ChargingSession) -> some View {
+    private func activeChargingContent(_ session: ChargingSession) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(L10n.t("history.active_charging"))
-                .font(.headline)
+                .font(.subheadline.weight(.semibold))
             HStack {
                 Text(L10n.t("history.session_duration", BatteryHistoryFormatting.duration(session.duration)))
                 Spacer()
@@ -59,16 +64,16 @@ struct BatteryHistorySection: View {
             }
             .font(.subheadline)
         }
-        .padding()
+        .padding(4)
         .background(settings.theme.accent.opacity(0.12))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
     private var levelTrendSection: some View {
         let recent = history.levelSamples(hours: 24)
         return VStack(alignment: .leading, spacing: 8) {
             Text(L10n.t("history.level_trend"))
-                .font(.headline)
+                .font(.subheadline.weight(.semibold))
             if recent.isEmpty {
                 Text(L10n.t("history.empty"))
                     .font(.caption)
@@ -87,7 +92,7 @@ struct BatteryHistorySection: View {
         let sessions = history.recentSessions()
         return VStack(alignment: .leading, spacing: 8) {
             Text(L10n.t("history.charging_title"))
-                .font(.headline)
+                .font(.subheadline.weight(.semibold))
             if sessions.isEmpty {
                 Text(L10n.t("history.empty"))
                     .font(.caption)
@@ -123,8 +128,8 @@ struct BatteryHistorySection: View {
             .font(.caption)
         }
         .padding(.vertical, 6)
-        .padding(.horizontal, 10)
-        .background(.background.opacity(0.45))
+        .padding(.horizontal, 8)
+        .background(Color.primary.opacity(0.04))
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

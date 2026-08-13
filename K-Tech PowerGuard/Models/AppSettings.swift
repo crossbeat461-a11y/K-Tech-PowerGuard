@@ -17,6 +17,7 @@ final class AppSettings: ObservableObject {
         static let customAccentB = "customAccentB"
         static let useCustomAccent = "useCustomAccent"
         static let language = "appLanguage"
+        static let glassIntensity = "glassIntensity"
     }
 
     @Published var lowerThreshold: Int {
@@ -47,6 +48,10 @@ final class AppSettings: ObservableObject {
         didSet { UserDefaults.standard.set(language.rawValue, forKey: Keys.language) }
     }
 
+    @Published var glassIntensity: GlassIntensity {
+        didSet { UserDefaults.standard.set(glassIntensity.rawValue, forKey: Keys.glassIntensity) }
+    }
+
     @Published var theme: ThemeColors
 
     @Published var customAccent: Color {
@@ -70,6 +75,9 @@ final class AppSettings: ObservableObject {
 
         let langRaw = defaults.string(forKey: Keys.language) ?? AppLanguage.ja.rawValue
         language = AppLanguage(rawValue: langRaw) ?? .ja
+
+        let glassRaw = defaults.object(forKey: Keys.glassIntensity) as? Int ?? GlassIntensity.medium.rawValue
+        glassIntensity = GlassIntensity(rawValue: glassRaw) ?? .medium
 
         let presetRaw = defaults.string(forKey: Keys.preset) ?? NeoColorPreset.silver.rawValue
         selectedPreset = NeoColorPreset(rawValue: presetRaw) ?? .silver
