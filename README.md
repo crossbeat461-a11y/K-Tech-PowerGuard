@@ -26,6 +26,14 @@
 
 直接リンク: [K-Tech-PowerGuard-1.0.7.dmg](https://github.com/crossbeat461-a11y/K-Tech-PowerGuard/releases/download/v1.0.7/K-Tech-PowerGuard-1.0.7.dmg)
 
+案内:
+
+- LP: https://powerguard-lp.vercel.app/
+- Homepage: https://k-tech-lab.vercel.app/
+- アプリ更新: https://k-tech-lab.vercel.app/updates/
+- note マガジン: https://note.com/ktech_dev/m/m3f0d8fa48ef9
+- 入口 note: https://note.com/ktech_dev/n/n54fab14afae1
+
 > **インストール前に必ずお読みください（日本語）** — 下記「インストールに関する免責・同意」。DMG からインストールした時点で同意したものとみなします。
 
 ### インストールに関する免責・同意
@@ -36,11 +44,12 @@
 - **DMG からインストールする、または本ソフトウェアを利用開始した時点で**、上記および [MIT ライセンス](LICENSE) の内容を **理解し、同意したもの** とみなします。
 - 本ソフトウェアの利用（インストールを含む）に関連して生じた **いかなる損害・不利益** についても、開発者・著作権者は **MIT ライセンスおよび適用される法令の範囲内でのみ** 責任を負い、それを超える責任の追及は受けません。
 
-**まだ Release が無い場合** — この Mac で DMG を作る（要 Xcode ライセンス同意）:
+**自分の Mac で DMG を作る場合**（要 Xcode ライセンス同意）:
 
 ```bash
+git clone https://github.com/crossbeat461-a11y/K-Tech-PowerGuard.git
+cd K-Tech-PowerGuard
 sudo xcodebuild -license accept
-cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 ./scripts/build-dmg.sh
 ```
 
@@ -55,8 +64,8 @@ cd "/Users/kimurashigeru/Documents/github/K-Tech PowerGuard"
 ## ビルド（開発者向け）
 
 ```bash
-# Xcode ライセンス同意後
-cd "K-Tech PowerGuard"
+# clone したフォルダで（GitHub 上の名前はハイフン）
+cd K-Tech-PowerGuard
 ./scripts/build-dmg.sh
 # → dist/K-Tech-PowerGuard-1.0.7.dmg
 ```
