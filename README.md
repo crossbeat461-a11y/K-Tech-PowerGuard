@@ -81,6 +81,10 @@ Xcode 26 / macOS 14 以上を想定。`K-Tech PowerGuard.xcodeproj` を開いて
 | Citrus | シトラス |
 | Indigo | インディゴ |
 
+## 支援
+
+[Buy Me a Coffee](https://buymeacoffee.com/k_tech_studio)
+
 ## ライセンス
 
 MIT — 詳細は [LICENSE](LICENSE)
