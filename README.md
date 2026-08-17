@@ -59,9 +59,12 @@ sudo xcodebuild -license accept
 
 1. DMG を開く  
 2. **K-Tech PowerGuard** を **Applications** にドラッグ  
-3. 初回起動: 右クリック → **開く**（未署名ビルドの場合）  
-4. **システム設定 → 通知** で K-Tech PowerGuard を許可  
-5. メニューバーアイコン → **設定…** で Neo カラー・しきい値を調整  
+3. アプリをクリックしたとき、エラー（開けない）と出ることがあります。**削除は選ばないでください。**  
+4. **システム設定 → プライバシーとセキュリティ** を開き、画面を下へスクロールする  
+5. **K-Tech PowerGuard** の案内と **このまま開く** が出ているので、そのボタンを押す  
+6. 確認が出たら、もう一度 **このまま開く** を選ぶ。その後は利用できます  
+7. **システム設定 → 通知** で K-Tech PowerGuard を許可  
+8. メニューバーアイコン → **設定…** で Neo カラー・しきい値を調整  
 
 ## ビルド（開発者向け）
 
@@ -104,3 +107,14 @@ MIT — 詳細は [LICENSE](LICENSE)
 - The developer (K-Tech Studio) **does not warrant** successful installation, ongoing correct operation, delivery of notifications, or any effect on battery life, hardware, or data.
 - **By installing from the DMG or starting to use the software**, you **acknowledge and agree** to this disclaimer and the MIT License.
 - To the **maximum extent permitted by applicable law**, the authors and copyright holders **shall not be liable** for any damages or losses arising from installation or use of this software, except as stated in the MIT License.
+
+### First launch
+
+1. Open the DMG  
+2. Drag **K-Tech PowerGuard** to **Applications**  
+3. Clicking the app may show an error that it cannot be opened. **Do not choose Delete (or Move to Trash).**  
+4. Open **System Settings → Privacy & Security** and scroll down  
+5. When **K-Tech PowerGuard** appears with **Open Anyway**, press that button  
+6. If asked again, choose **Open Anyway**. You can then use the app  
+7. Allow K-Tech PowerGuard in **System Settings → Notifications**  
+8. Menu bar icon → **Settings…** to adjust Neo colors and thresholds
