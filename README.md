@@ -1,5 +1,7 @@
 # K-Tech PowerGuard
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/k_tech_studio)
+
 **すべての Mac** で使える、メニューバー常駐のバッテリー通知アプリです。MacBook Neo の4色（**Silver · Blush · Citrus · Indigo**）をテーマとして選べます。無償配布（MIT）。
 
 > バッテリー監視・通知は MacBook Air / Pro / mini / iMac など **機種共通** です。設定画面ではお使いの Mac を自動表示します。
